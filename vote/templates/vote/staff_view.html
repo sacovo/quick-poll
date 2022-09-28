@@ -1,0 +1,38 @@
+{% extends "vote/base.html" %}
+{% load static i18n %}
+
+{% block main %}
+  {% csrf_token %}
+  <div class="open" v-if="hasOpenVote">
+    <h2>{% trans "Abstimmung offen" %}</h2>
+    <p>${voteData.question}</p>
+
+    <button type="button" class="btn btn-danger btn-lg" @click="closeVote">{% trans "Schliessen" %}</button>
+
+    {% include 'vote/results.html' %}
+    {% include 'vote/answer_table.html' %}
+  </div>
+  <div class="closed" v-else>
+    <h2>{% trans "Abstimmung eröffnen" %}</h2>
+    <form id="questionForm" @submit.prevent="openVote">
+      <div class="form-group">
+        <label for="questionInput">{% trans "Abstimmungsfrage" %}</label>
+        <input type="text" v-model="question" class="form-control" id="questionInput"/>
+      </div>
+      <div class="form-group">
+        <label for="optionInput">{% trans "Antworten" %}</label>
+        <textarea v-model="options" class="form-control"></textarea>
+        <small class="form-text text-muted">{% trans "Für jede Option eine neue Zeile eingeben" %}</small>
+      </div>
+      <button type="submit" class="btn btn-primary">{% trans "Open" %}</button>
+    </form>
+  </div>
+{% endblock main %}
+
+{% block aside %}
+  {% include 'vote/past_votes.html' %}
+{% endblock aside %}
+
+{% block scripts %}
+  <script src="{% static 'delegate_app.js' %}"></script>
+{% endblock scripts %}

@@ -1,0 +1,24 @@
+{% load i18n %}
+<h3 class="mt-4">{% trans "Antworten" %}</h3>
+
+<table id="answers" class="table table-sm table-striped mt-2">
+  <thead>
+    <tr>
+      <th>{% trans "Delegierte:r" %}</th>
+      <th>{% trans "Wahl" %}</th>
+      <th>{% trans "Delegiert von" %}</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr
+      v-for="answer in voteData.answers"
+      v-bind:class="{'table-primary': answer.delegate__user__pk === {{request.user.pk}} }"
+    >
+      <td>
+        ${answer.delegate__user__first_name} ${answer.delegate__user__last_name}
+      </td>
+      <td>${voteData.options[answer.option]}</td>
+      <td>${answer.delegate__delegated_by}</td>
+    </tr>
+  </tbody>
+</table>

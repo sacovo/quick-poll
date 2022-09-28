@@ -1,0 +1,32 @@
+{% extends "vote/base.html" %}
+{% load static i18n %}
+
+{% block main %}
+  {% csrf_token %}
+  <div class="open" v-if="hasOpenVote">
+    <h2>{% trans "Abstimmung offen" %}</h2>
+    <p>
+      ${voteData.question}
+    </p>
+    <div class="d-flex">
+      <div v-for="(option, id) in voteData.options" :key="id">
+        <button class="btn mx-1 btn-lg btn-outline-primary" :class="{active: id == userOption }" v-bind:data-id="id" @click="voteAction">
+          ${option}
+        </button>
+      </div>
+    </div>
+    {% include 'vote/results.html' %}
+    {% include 'vote/answer_table.html' %}
+  </div>
+  <div class="closed d-flex justify-content-center align-items-center min-vh-100" v-else>
+    <div class="alert alert-secondary">{% trans "Keine laufende Abstimmung" %}</div>
+  </div>
+{% endblock main %}
+
+{% block aside %}
+  {% include 'vote/past_votes.html' %}
+{% endblock aside %}
+
+{% block scripts %}
+  <script src="{% static 'delegate_app.js' %}"></script>
+{% endblock scripts %}

@@ -1,0 +1,12 @@
+{% load i18n %}
+<div class="results my-2">
+  <h3>{% trans "Zwischenresultat" %}</h3>
+  <table class="table table-sm table-bordered card-text">
+    <tbody>
+      <tr v-for="(option, id) in voteData.options">
+        <th>${option}</th>
+        <td>${voteData.results[id] | 0}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

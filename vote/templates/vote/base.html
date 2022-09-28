@@ -1,0 +1,26 @@
+{% load i18n static %}
+<!DOCTYPE html>
+<html lang="{{request.LANGUAGE_CODE}}">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <title>{{ title }} - {% trans 'Vote Tool' %}</title>
+    <link href="{% static 'normalize.css' %}" rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous"/>
+    <link href="{% static 'style.css' %}" rel="stylesheet" type="text/css"/>
+  </head>
+  <body>
+    <input type="hidden" id="userPk" value="{{ request.user.id }}"/>
+    <div v-scope id="app" class="container">
+      <div class="row">
+        <main class="col-md-8">{% block main %}{% endblock main %}</main>
+        <aside class="col-md-4">{% block aside %}{% endblock aside %}</aside>
+      </div>
+    </div>
+
+    <script src="{% static 'fetch_info.js' %}"></script>
+    <script src="https://unpkg.com/petite-vue"></script>
+    {% block scripts %}
+    {% endblock scripts %}
+  </body>
+</html>

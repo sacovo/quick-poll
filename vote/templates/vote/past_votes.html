@@ -1,0 +1,18 @@
+{% load i18n %}
+
+<div class="max-vh-100">
+  <h3 class="sticky-top bg-white" style="z-index: 10">{% trans "Abgeschlossene Abstimmungen" %}</h3>
+  <div class="card my-1" v-for="question in pastData">
+    <div class="card-body">
+      <h5 class="card-title">${question.question}</h5>
+      <table class="table table-sm table-bordered card-text">
+        <tbody>
+          <tr v-for="(option, id) in question.options">
+            <th>${option}</th>
+            <td>${question.results[id] | 0}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

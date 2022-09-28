@@ -1,0 +1,19 @@
+{% extends "vote/base.html" %}
+{% load crispy_forms_tags %}
+
+{% block main %}
+  <h2>Import Delegates</h2>
+  {% if error %}
+    <div class="alert alert-danger">{{ error }}</div>
+  {% endif %}
+  {% if success %}
+    <div class="alert alert-success">{{ success }}</div>
+  {% endif %}
+  {% crispy form %}
+{% endblock main %}
+
+
+{% block aside %}
+  <h3>Manual</h3>
+  <p>Define the column names and the seperator used in the CSV you want to upload. The import process either succeeds or fails completely. If there is a single issue with the uploaded file, no delegates will be imported. You can fix the error and upload again without creating duplicate delegates.</p>
+{% endblock aside %}
