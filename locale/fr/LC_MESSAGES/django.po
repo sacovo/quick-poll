@@ -1,0 +1,112 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-09-28 10:27+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+#: core/settings.py:134
+msgid "German"
+msgstr ""
+
+#: core/settings.py:135
+msgid "English"
+msgstr ""
+
+#: core/settings.py:136
+msgid "French"
+msgstr ""
+
+#: core/settings.py:137
+msgid "Italian"
+msgstr ""
+
+#: core/settings.py:138
+msgid "Spanish"
+msgstr ""
+
+#: vote/templates/vote/answer_table.html:2
+#: vote/templates/vote/staff_view.html:23
+msgid "Antworten"
+msgstr ""
+
+#: vote/templates/vote/answer_table.html:7
+msgid "Delegierte:r"
+msgstr ""
+
+#: vote/templates/vote/answer_table.html:8
+msgid "Wahl"
+msgstr ""
+
+#: vote/templates/vote/answer_table.html:9
+msgid "Delegiert von"
+msgstr ""
+
+#: vote/templates/vote/base.html:7
+msgid "Vote Tool"
+msgstr ""
+
+#: vote/templates/vote/delegate_view.html:7
+#: vote/templates/vote/staff_view.html:7
+msgid "Abstimmung offen"
+msgstr ""
+
+#: vote/templates/vote/delegate_view.html:22
+msgid "Keine laufende Abstimmung"
+msgstr ""
+
+#: vote/templates/vote/past_votes.html:4
+msgid "Abgeschlossene Abstimmungen"
+msgstr ""
+
+#: vote/templates/vote/results.html:3
+msgid "Zwischenresultat"
+msgstr ""
+
+#: vote/templates/vote/staff_view.html:10
+msgid "Schliessen"
+msgstr ""
+
+#: vote/templates/vote/staff_view.html:16
+msgid "Abstimmung eröffnen"
+msgstr ""
+
+#: vote/templates/vote/staff_view.html:19
+msgid "Abstimmungsfrage"
+msgstr ""
+
+#: vote/templates/vote/staff_view.html:25
+msgid "Für jede Option eine neue Zeile eingeben"
+msgstr ""
+
+#: vote/templates/vote/staff_view.html:27
+msgid "Open"
+msgstr ""
+
+#: vote/views.py:26
+msgid "Votingtool"
+msgstr ""
+
+#: vote/views.py:87
+msgid "Already a question running"
+msgstr ""
+
+#: vote/views.py:108
+msgid "No open questions"
+msgstr ""
+
+#: vote/views.py:113
+msgid "Closed question"
+msgstr ""
