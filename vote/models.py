@@ -15,7 +15,7 @@ class Delegate(TimeStampedModel):
     mail_failed = models.BooleanField(default=False)
 
     class Meta:
-        ordering = ('delegated_by', 'user')
+        ordering = ("delegated_by", "user")
 
     def __str__(self):
         return str(self.user)
@@ -24,6 +24,7 @@ class Delegate(TimeStampedModel):
 class Question(TimeStampedModel):
     question = models.CharField(max_length=512)
     closed = models.BooleanField(default=False)
+    secret = models.BooleanField(default=False)
 
     @property
     def options(self):
@@ -31,20 +32,32 @@ class Question(TimeStampedModel):
 
     @property
     def answers(self):
-        return list(self.answer_set.all().values(
-            'delegate__user__first_name',
-            'delegate__user__last_name',
-            'delegate__delegated_by',
-            'delegate__user__pk',
-            'option',
-        ))
+        if self.secret:
+            # Set first and last name to "-" and pk to 0
+            result = self.answer_set.all().values(
+                "option",
+                delegate__user__first_name=models.Value("-"),
+                delegate__user__last_name=models.Value(""),
+                delegate__user__pk=models.Value(0),
+                delegate__delegated_by=models.Value("-"),
+            )
+        else:
+            result = self.answer_set.all().values(
+                "delegate__user__first_name",
+                "delegate__user__last_name",
+                "delegate__delegated_by",
+                "delegate__user__pk",
+                "option",
+            )
+        return list(result)
 
     @property
     def results(self):
         return {
-            option['option']: option['count']
-            for option in self.answer_set.all().values('option').annotate(
-                count=models.Count('id'))
+            option["option"]: option["count"]
+            for option in self.answer_set.all()
+            .values("option")
+            .annotate(count=models.Count("id"))
         }
 
     def __str__(self):

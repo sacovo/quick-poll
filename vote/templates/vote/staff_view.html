@@ -24,6 +24,10 @@
         <textarea v-model="options" class="form-control"></textarea>
         <small class="form-text text-muted">{% trans "Für jede Option eine neue Zeile eingeben" %}</small>
       </div>
+      <div class="form-group">
+        <label for="secretVote">{% trans "Geheime Abstimmung" %}</label>
+        <input type="checkbox" v-model="secret" id="secretVote"/>
+      </div>
       <button type="submit" class="btn btn-primary">{% trans "Open" %}</button>
     </form>
   </div>

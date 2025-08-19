@@ -5,6 +5,7 @@ const store = PetiteVue.reactive({
   voteData: {},
   pastData: [],
   question: "",
+  secret: false,
   options: "",
   userOption: null,
 
@@ -15,8 +16,10 @@ const store = PetiteVue.reactive({
   refresh() {
     fetchData().then((data) => {
       this.voteData = data;
-      this.userOption = null;
-      if (!this.voteData.answers) return;
+      if (!this.voteData.answers) {
+        this.userOption = null;
+        return;
+      }
       for (answer of this.voteData.answers) {
         if (answer["delegate__user__pk"] == userPk) {
           this.userOption = answer["option"];
@@ -32,12 +35,13 @@ const store = PetiteVue.reactive({
 
   voteAction(event) {
     const optionId = event.target.dataset.id;
+    this.userOption = optionId;
     postData("/vote/", { option: optionId });
   },
 
   openVote(event) {
     if (this.question && this.options) {
-      postData("/open/", { question: this.question, options: this.options });
+      postData("/open/", { question: this.question, options: this.options, secret: this.secret });
       this.question = "";
       this.options = "";
     }
