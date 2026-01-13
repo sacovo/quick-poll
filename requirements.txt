@@ -91,7 +91,7 @@ six==1.16.0
     #   blessed
     #   pymemcache
     #   python-dateutil
-sqlparse==0.4.3
+sqlparse==0.4.4
     # via django
 tablib[html,ods,xls,xlsx,yaml]==3.2.1
     # via django-import-export
