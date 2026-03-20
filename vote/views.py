@@ -1,4 +1,5 @@
 import csv
+import pandas as pd
 from django.db import transaction
 from io import StringIO
 from django.contrib.auth import get_user_model
@@ -133,13 +134,12 @@ def import_delegates(request):
                 Delegate.objects.all().delete()
                 get_user_model().objects.filter(is_staff=False).delete()
 
-            content = StringIO(data["csv"].read().decode("utf-8"))
-            reader = csv.DictReader(content, delimiter=data["seperator"])
+            df = pd.read_excel(data["csv"])
 
             users = []
             delegates = []
 
-            for row in reader:
+            for row in df.to_dict(orient="records"):
                 first_name = row[data["first_name"]]
                 last_name = row[data["last_name"]]
                 email = row[data["email"]]

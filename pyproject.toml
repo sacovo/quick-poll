@@ -1,0 +1,27 @@
+[project]
+name = "quick-poll"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "boto3>=1.42.72",
+    "crispy-bootstrap4>=2026.2",
+    "django>=4.0.3",
+    "django-constance[database]>=4.3.5",
+    "django-crispy-forms>=2.6",
+    "django-environ>=0.13.0",
+    "django-extensions>=4.1",
+    "django-import-export>=4.4.0",
+    "django-model-utils>=5.0.0",
+    "django-q-email>=5.0.1",
+    "django-sesame[ua]>=3.2.3",
+    "django-storages>=1.14.6",
+    "gunicorn>=25.1.0",
+    "openpyxl>=3.1.5",
+    "pandas",
+    "psycopg2-binary>=2.9.11",
+    "pymemcache>=4.0.0",
+    "setuptools==39.1.0",
+    "whitenoise[brotli]>=6.12.0",
+]
