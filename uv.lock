@@ -550,7 +550,6 @@ dependencies = [
     { name = "pandas" },
     { name = "psycopg2-binary" },
     { name = "pymemcache" },
-    { name = "setuptools" },
     { name = "whitenoise", extra = ["brotli"] },
 ]
 
@@ -573,7 +572,6 @@ requires-dist = [
     { name = "pandas" },
     { name = "psycopg2-binary", specifier = ">=2.9.11" },
     { name = "pymemcache", specifier = ">=4.0.0" },
-    { name = "setuptools", specifier = "==39.1.0" },
     { name = "whitenoise", extras = ["brotli"], specifier = ">=6.12.0" },
 ]
 
@@ -596,15 +594,6 @@ dependencies = [
 sdist = { url = "https://files.pythonhosted.org/packages/05/04/74127fc843314818edfa81b5540e26dd537353b123a4edc563109d8f17dd/s3transfer-0.16.0.tar.gz", hash = "sha256:8e990f13268025792229cd52fa10cb7163744bf56e719e0b9cb925ab79abf920", size = 153827, upload-time = "2025-12-01T02:30:59.114Z" }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/fc/51/727abb13f44c1fcf6d145979e1535a35794db0f6e450a0cb46aa24732fe2/s3transfer-0.16.0-py3-none-any.whl", hash = "sha256:18e25d66fed509e3868dc1572b3f427ff947dd2c56f844a5bf09481ad3f3b2fe", size = 86830, upload-time = "2025-12-01T02:30:57.729Z" },
-]
-
-[[package]]
-name = "setuptools"
-version = "39.1.0"
-source = { registry = "https://pypi.org/simple" }
-sdist = { url = "https://files.pythonhosted.org/packages/a6/5b/f399fcffb9128d642387133dc3aa9bb81f127b949cd4d9f63e5602ad1d71/setuptools-39.1.0.zip", hash = "sha256:c5484e13b89927b44fd15897f7ce19dded8e7f035466a4fa7b946c0bdd86edd7", size = 845300, upload-time = "2018-04-28T11:26:51.877Z" }
-wheels = [
-    { url = "https://files.pythonhosted.org/packages/8c/10/79282747f9169f21c053c562a0baa21815a8c7879be97abd930dbcf862e8/setuptools-39.1.0-py2.py3-none-any.whl", hash = "sha256:0cb8b8625bfdcc2d43ea4b9cdba0b39b2b7befc04f3088897031082aa16ce186", size = 566761, upload-time = "2018-04-28T11:26:49.461Z" },
 ]
 
 [[package]]
